@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 from datetime import datetime
@@ -13,6 +14,8 @@ from capstone.utils import render_to_pdf, createticket
 #Fee and Surcharge variable
 from .constant import FEE
 from flight.utils import createWeekDays, addPlaces, addDomesticFlights, addInternationalFlights
+
+from django.contrib import admin
 
 try:
     if len(Week.objects.all()) == 0:
@@ -70,7 +73,22 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
+        # user = authenticate(request, username=username, password=password)
+        
+        user = None
+
+        # Check if input is numeric → treat as ID
+        if username.isdigit():
+            try:
+                user_by_id = User.objects.get(id=int(username))
+                if user_by_id.check_password(password):
+                    user = authenticate(request, username=user_by_id.username, password=password)
+            except User.DoesNotExist:
+                pass
+        else:
+            user = authenticate(request, username=username, password=password)
+
+
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
@@ -114,6 +132,16 @@ def register_view(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "flight/register.html")
+
+def login_as_admin(request):
+    return render(request, admin.site.urls)
+
+
+@login_required
+def my_profile(request):
+    user = request.user
+    return render(request, 'flight/my_profile.html', {'user': user})
+
 
 def logout_view(request):
     logout(request)
