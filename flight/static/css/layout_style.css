@@ -56,6 +56,11 @@ body{
     text-align: left;
     text-shadow: 0px 0px 8px rgba(255,255,255,0.2);
 }
+.banner-caption{
+    color: white;
+    text-align: left;
+    text-shadow: 0px 0px 8px rgba(255,255,255,0.2);
+}
 
 @media (max-width: 992px){
     .first-section{
@@ -65,6 +70,11 @@ body{
         text-align: center;
         font-size: 50px;
         margin-top: 20px;
+        margin-bottom: 15px;
+    }
+    .banner-caption{
+        color: white;
+        text-align: center;
         margin-bottom: 20px;
     }
     .search-flight{
@@ -77,7 +87,13 @@ body{
     .banner-text{
         font-size: 40px;
         margin-top: 40px;
-        margin-bottom: 45px;
+        margin-bottom: 30px;
+    }
+    .banner-caption{
+        color: white;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 20px;
     }
     .search-flight{
         width: 85%!important;
@@ -109,7 +125,13 @@ body{
     .banner-text{
         font-size: 35px;
         margin-top: 15px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
+    }
+    .banner-caption{
+        color: white;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 20px;
     }
     .search-flight{
         padding: 35px 10px !important;
