@@ -418,7 +418,7 @@
                                             {{flight1.first_fare | divide:80}}
                                         {% endif %}
                                         </span>
-                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.first_fare | add:flight2.first_fare}}{% else %}{{flight1.first_fare}}{% endif %}">
+                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.first_fare | add:flight2.first_fare | divide:80}}{% else %}{{flight1.first_fare | divide:80}}{% endif %}">
                                 {% elif seat == 'Business' %}
                                     $ <span>
                                         {% if flight2 %}
@@ -427,7 +427,7 @@
                                             {{flight1.business_fare | divide:80}}
                                         {% endif %}
                                         </span>
-                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.business_fare | add:flight2.business_fare}}{% else %}{{flight1.business_fare}}{% endif %}">
+                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.business_fare | add:flight2.business_fare | divide:80}}{% else %}{{flight1.business_fare | divide:80}}{% endif %}">
                                 {% elif seat == 'Economy' %}
                                     $ <span>
                                         {% if flight2 %}
@@ -436,7 +436,7 @@
                                             {{flight1.economy_fare | divide:80}}
                                         {% endif %}
                                     </span>
-                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.economy_fare | add:flight2.economy_fare}}{% else %}{{flight1.economy_fare}}{% endif %}">
+                                    <input type="hidden" id="basefare" value="{% if flight2 %}{{flight1.economy_fare | add:flight2.economy_fare | divide:80}}{% else %}{{flight1.economy_fare | divide:80}}{% endif %}">
                                 {% endif %}
                             </div>
                         </div>

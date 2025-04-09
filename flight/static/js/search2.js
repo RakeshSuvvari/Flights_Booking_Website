@@ -375,8 +375,15 @@ function flight_select() {
             document.querySelector("#select-f1-depart").innerText = e.target.dataset.depart;
             document.querySelector("#select-f1-arrive").innerText = e.target.dataset.arrive;
             document.querySelector("#select-f1-fare").innerText = e.target.dataset.fare;
-            document.querySelector("#select-total-fare").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f2-fare").innerText);
-            document.querySelector("#select-total-fare-media").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f2-fare").innerText);
+            // document.querySelector("#select-total-fare").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f2-fare").innerText);
+            document.querySelector("#select-total-fare").innerText = (
+                parseFloat(e.target.dataset.fare) + parseFloat(document.querySelector("#select-f2-fare").innerText)
+            ).toFixed(2);
+            // document.querySelector("#select-total-fare-media").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f2-fare").innerText);
+            document.querySelector("#select-total-fare-media").innerText = (
+                parseFloat(e.target.dataset.fare) + parseFloat(document.querySelector("#select-f2-fare").innerText)
+            ).toFixed(2);
+            
         });
     });
     document.querySelectorAll(".flight2-radio").forEach(radio => {
@@ -388,8 +395,16 @@ function flight_select() {
             document.querySelector("#select-f2-depart").innerText = e.target.dataset.depart;
             document.querySelector("#select-f2-arrive").innerText = e.target.dataset.arrive;
             document.querySelector("#select-f2-fare").innerText = e.target.dataset.fare;
-            document.querySelector("#select-total-fare").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f1-fare").innerText);
-            document.querySelector("#select-total-fare-media").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f1-fare").innerText);
+            // document.querySelector("#select-total-fare").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f1-fare").innerText);
+            document.querySelector("#select-total-fare").innerText = (
+                parseFloat(e.target.dataset.fare) + parseFloat(document.querySelector("#select-f1-fare").innerText)
+            ).toFixed(2);
+            
+            // document.querySelector("#select-total-fare-media").innerText = parseInt(e.target.dataset.fare) + parseInt(document.querySelector("#select-f1-fare").innerText);
+            document.querySelector("#select-total-fare-media").innerText = (
+                parseFloat(e.target.dataset.fare) + parseFloat(document.querySelector("#select-f1-fare").innerText)
+            ).toFixed(2);
+            
         });
     });
 }

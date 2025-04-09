@@ -71,9 +71,9 @@ function add_traveller() {
     let pcount = document.querySelector("#p-count").value;
     let fare = document.querySelector("#basefare").value;
     let fee = document.querySelector("#fee").value;
-    if (parseInt(pcount)!==0) {
-        document.querySelector(".base-fare-value span").innerText = parseInt(fare)*parseInt(pcount);
-        document.querySelector(".total-fare-value span").innerText = (parseInt(fare)*parseInt(pcount))+parseInt(fee);
+    if (parseFloat(pcount)!==0) {
+        document.querySelector(".base-fare-value span").innerText = parseFloat(fare)*parseFloat(pcount);
+        document.querySelector(".total-fare-value span").innerText = (parseFloat(fare)*parseInt(pcount))+parseInt(fee);
     }
 
 }
@@ -93,14 +93,14 @@ function del_traveller(btn) {
     let fare = document.querySelector("#basefare").value;
     let fee = document.querySelector("#fee").value;
     if (parseInt(pcount) !== 0) {
-        document.querySelector(".base-fare-value span").innerText = parseInt(fare)*parseInt(pcount);
-        document.querySelector(".total-fare-value span").innerText = (parseInt(fare)*parseInt(pcount))+parseInt(fee);   
+        document.querySelector(".base-fare-value span").innerText = parseFloat(fare)*parseFloat(pcount);
+        document.querySelector(".total-fare-value span").innerText = (parseFloat(fare)*parseFloat(pcount))+parseFloat(fee);   
     }
 }
 
 function book_submit() {
     let pcount = document.querySelector("#p-count");
-    if(parseInt(pcount.value) > 0) {
+    if(parseFloat(pcount.value) > 0) {
         return true;
     }
     alert("Please add atleast one passenger.")
