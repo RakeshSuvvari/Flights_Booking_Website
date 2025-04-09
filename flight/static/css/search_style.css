@@ -580,3 +580,24 @@
     }*/
     /*Next css in othet css file*/
 }
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+    margin-top: 20px;
+}
+
+.trip-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #888;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.trip-tab.active-div {
+    color: #000;
+    border-bottom: 3px solid #007bff; /* blue highlight */
+}
+

@@ -473,7 +473,7 @@ function tab_change() {
     "width": activeWidth + "px"
     });
 
-    $(".tabs").on("click","a",function(e){
+    $(".tabs").on("click", ".trip-tab", function(e) {
     e.preventDefault();
     $('.tabs a').removeClass("active-div");
     $(this).addClass('active-div');
@@ -485,4 +485,40 @@ function tab_change() {
     });
     setTimeout(() => {trip_type_flight(e.target);},400);
     });
+
+}
+
+
+
+function resetFilters() {
+    // Reset all filter buttons (departure/arrival) to inactive
+    document.querySelectorAll('.square-box').forEach(box => {
+        box.classList.remove('active');
+        const imgs = box.querySelectorAll('img');
+        imgs.forEach(img => {
+            if (img.dataset.statefor === 'active') img.style.display = 'none';
+            if (img.dataset.statefor === 'inactive') img.style.display = 'block';
+        });
+    });
+
+    // Show all flights again
+    document.querySelectorAll('#flights_div .each-flight-div-box').forEach(div => {
+        div.classList.add('show');
+        div.style.display = '';
+    });
+
+    document.querySelectorAll('#flights_div2 .each-flight-div-box').forEach(div => {
+        div.classList.add('show');
+        div.style.display = '';
+    });
+
+    // Reset range filters if needed
+    let range1 = document.querySelector('.filter-price input[type="range"]');
+    let range2 = document.querySelector('.filter-price2 input[type="range"]');
+    if (range1) range1.value = range1.max;
+    if (range2) range2.value = range2.max;
+
+    // Optionally reapply filter functions
+    if (typeof filter === 'function') filter();
+    if (typeof filter2 === 'function') filter2();
 }
