@@ -16,6 +16,9 @@ from .constant import FEE
 from flight.utils import createWeekDays, addPlaces, addDomesticFlights, addInternationalFlights
 
 from django.contrib import admin
+from django import template
+
+register = template.Library()
 
 try:
     if len(Week.objects.all()) == 0:
@@ -155,6 +158,13 @@ def query(request, q):
         if (q in place.city.lower()) or (q in place.airport.lower()) or (q in place.code.lower()) or (q in place.country.lower()):
             filters.append(place)
     return JsonResponse([{'code':place.code, 'city':place.city, 'country': place.country} for place in filters], safe=False)
+
+@register.filter
+def divide(value, divisor):
+    try:
+        return round(float(value) / float(divisor), 2)
+    except (ValueError, ZeroDivisionError):
+        return None
 
 @csrf_exempt
 def flight(request):
