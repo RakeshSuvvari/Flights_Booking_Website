@@ -37,3 +37,15 @@
 .small{
     font-size: small;
 }
+
+
+.btn-danger {
+    background-color: #942882;
+    color: #fff; /* Change the text color */
+    border-color: #942882;
+}
+
+.btn-danger:hover {
+    background-color: #da00b5;
+    border-color: #da00b5;
+}
