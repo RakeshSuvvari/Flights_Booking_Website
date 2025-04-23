@@ -50,7 +50,7 @@ body{
     background-color: green;
 }
 .red{
-    background-color: red;
+    background-color: #9A5E90;
 }
 .orange{
     background-color: orange;
@@ -177,7 +177,7 @@ body{
 }
 
 .cbtn:hover, .cbtn:focus, .cbtn:active{
-    color: #dc3545!important;
+    color: #9A5E90!important;
 }
 
 .pbtn:hover, .pbtn:focus, .pbtn:active{

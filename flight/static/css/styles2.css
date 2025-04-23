@@ -1,6 +1,6 @@
 .form-control:focus{
-    box-shadow: 0 0 0 0.03rem rgba(220,53,69,.25);
-    border-color: rgb(220,53,69);
+    box-shadow: 0 0 0 0.03rem rgba(148,40,130,.25);
+    border-color: rgb(148,40,130);
 }
 .btn, .btn:focus, .btn:active{
     box-shadow: none !important;
@@ -12,7 +12,7 @@
     width: 95%;
 }
 .star{
-    color: red;
+    color: #9A5E90;
 }
 
 .user-box{

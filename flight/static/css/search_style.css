@@ -28,13 +28,13 @@
 
 .query-data-div{
     min-height: 11vh;
-    background-color: crimson;
-    background-image: linear-gradient(135deg, crimson, #b8017b);
+    background-color: #942882;
+    background-image: linear-gradient(135deg, #942882, #b8017b);
     display: flex;
 }
 .query-data-div2{
-    background-color: crimson;
-    background-image: linear-gradient(135deg, crimson, #b8017b);
+    background-color: #942882;
+    background-image: linear-gradient(135deg, #942882, #b8017b);
     display: none;
 }
 .query-data-div2 > .container{
@@ -118,11 +118,12 @@
     box-shadow: none!important;
 }
 /*.trip-modify button:hover, button:active, button:focus{
-    background-color: rgba(220,53,69,.1);
+    background-color: rgba(148,40,130,.1);
 }*/
 .trip-modify button:hover, button:active{
     background-color: rgb(255, 235, 245);
-    color: rgb(189, 4, 116);
+    /* color: rgb(189, 4, 116); */
+    color: #942882;
 }
 .trip-modify button:focus{
     box-shadow: 0 0 0 0.2rem rgba(255,255,255,.3);
@@ -424,14 +425,14 @@
     padding: 5px 10px;
     border-radius: 15px 0 0 15px;
     cursor: pointer;
-    border: .5px dotted rgb(220, 45, 60);
+    border: .5px dotted #942882;;
     transition-duration: .4s;
 }
 #flight2-btn-div{
     padding: 5px 10px;
     border-radius: 0 15px 15px 0;
     cursor: pointer;
-    border: .5px dotted rgb(220, 45, 60);
+    border: .5px dotted #942882;;
     transition-duration: .4s;
 }
 /*.active-div{
@@ -487,7 +488,7 @@
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
     background: #b80190;
-    background: linear-gradient(45deg, crimson 0%, #b80190 100%);
+    background: linear-gradient(45deg, #942882 0%, #b80190 100%);
     /*background: #05abe0;*/
     /*background: linear-gradient(45deg, #05abe0 0%,#8200f4 100%);*/
     

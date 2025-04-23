@@ -16,3 +16,10 @@ deactivate
 
 python manage.py migrate
 python manage.py runserver
+
+
+#9A5E90
+
+#942882
+
+#dc3545

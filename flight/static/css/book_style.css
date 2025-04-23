@@ -13,7 +13,7 @@
 }
 
 h5{
-    /* background: -webkit-linear-gradient(right, crimson, #b8017b); */
+    /* background: -webkit-linear-gradient(right, #942882, #b8017b); */
     /* -webkit-backbaground-clip: text;
     background-clip: None; */
     -webkit-text-fill-color: #E85858;
@@ -123,7 +123,7 @@ h5{
     box-shadow: none;
 }
 .delete-traveller button:hover{
-    color: red;
+    color: #9A5E90;
 }
 
 .contact-details-div{
