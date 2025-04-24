@@ -198,3 +198,14 @@ body{
     background-color: #da00b5;
     border-color: #da00b5;
 }
+
+.btn-outline-danger {
+    border-color: #da00b5;
+    color: #da00b5;
+}
+
+.btn-outline-danger:hover {
+    background-color: #942882;
+    color: #fff;
+    border-color: #942882;
+}
