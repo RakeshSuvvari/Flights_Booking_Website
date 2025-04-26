@@ -1,0 +1,61 @@
+<!-- {% extends 'flight/layout.html' %}
+{% load static %}
+{% block head %}
+  <title>Select Seat</title>
+  <style>
+    .seat-map {
+      display: flex;
+      flex-wrap: wrap;
+      width: 240px;
+      margin: auto;
+    }
+    .seat {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      background-color: #ccc;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .seat.booked {
+      background-color: #e74c3c;
+      cursor: not-allowed;
+    }
+    .seat.selected {
+      background-color: #2ecc71;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h2>Select Your Seat for {{ booking.flight }}</h2>
+
+  <div class="seat-map">
+    {% for seat in seats %}
+      <div class="seat {% if seat.is_booked %}booked{% endif %}" data-seat="{{ seat.seat_number }}">
+        {{ seat.seat_number }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <form method="POST" style="margin-top: 20px; text-align: center;">
+    {% csrf_token %}
+    <input type="hidden" name="seat_number" id="seat_input">
+    <button type="submit" class="btn btn-success">Confirm Seat</button>
+  </form>
+</div>
+
+<script>
+  document.querySelectorAll('.seat').forEach(seat => {
+    seat.addEventListener('click', () => {
+      if (seat.classList.contains('booked')) return;
+      document.querySelectorAll('.seat').forEach(s => s.classList.remove('selected'));
+      seat.classList.add('selected');
+      document.getElementById('seat_input').value = seat.dataset.seat;
+    });
+  });
+</script>
+{% endblock %} -->

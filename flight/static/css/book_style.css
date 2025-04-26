@@ -383,3 +383,29 @@ h5{
     color: #fff;
     border-color: #942882;
 }
+
+
+.seat-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.seat-row {
+  display: flex;
+  gap: 5px;
+}
+.seat input[type="radio"] {
+  display: none;
+}
+.seat {
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.seat.booked {
+  background-color: #ccc;
+  color: #fff;
+  pointer-events: none;
+}

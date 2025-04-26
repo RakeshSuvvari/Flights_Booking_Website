@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.http import JsonResponse
+from django.http import HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -341,6 +342,7 @@ def book(request):
                 fname = request.POST[f'passenger{i}FName']
                 lname = request.POST[f'passenger{i}LName']
                 gender = request.POST[f'passenger{i}Gender']
+                # seat = request.POST[f'passenger{i}Seat']
                 passengers.append(Passenger.objects.create(first_name=fname,last_name=lname,gender=gender.lower()))
             coupon = request.POST.get('coupon')
             
@@ -382,6 +384,34 @@ def book(request):
             return HttpResponseRedirect(reverse("login"))
     else:
         return HttpResponse("Method must be post.")
+
+
+# @login_required
+# def select_seat(request, booking_id):
+#     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+#     seats = Seat.objects.filter(flight=booking.flight).order_by('seat_number')
+
+#     if request.method == 'POST':
+#         seat_number = request.POST.get('seat_number')
+#         seat = Seat.objects.get(flight=booking.flight, seat_number=seat_number)
+
+#         if not seat.is_booked:
+#             seat.is_booked = True
+#             seat.save()
+#             booking.seat = seat
+#             booking.save()
+#             return redirect('my_bookings')  # or confirmation
+
+#     return render(request, 'flight/select_seat.html', {
+#         'booking': booking,
+#         'seats': seats
+#     })
+
+# def generate_seats_for_flight(flight):
+#     seat_layout = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D']
+#     for seat in seat_layout:
+#         Seat.objects.get_or_create(flight=flight, seat_number=seat)
+
 
 def payment(request):
     if request.user.is_authenticated:
@@ -454,6 +484,32 @@ def bookings(request):
         })
     else:
         return HttpResponseRedirect(reverse('login'))
+
+# def confirm_booking(request):
+#     if request.method == 'POST':
+#         flight_id = request.POST['flight_id']
+#         seat_class = request.POST['seat_class']
+#         seat_number = request.POST['seat_number']
+
+#         flight = get_object_or_404(Flight, id=flight_id)
+
+#         if SeatBooking.objects.filter(flight=flight, seat_number=seat_number).exists():
+#             return HttpResponse("Seat already taken. Please go back and choose another.")
+
+#         booking = Booking.objects.create(
+#             user=request.user,
+#             flight=flight,
+#             seat_class=seat_class
+#         )
+
+#         SeatBooking.objects.create(
+#             booking=booking,
+#             flight=flight,
+#             seat_number=seat_number
+#         )
+
+#         return redirect('my_bookings')
+#     return HttpResponseBadRequest("Invalid Request")
 
 @csrf_exempt
 def cancel_ticket(request):
