@@ -23,3 +23,8 @@ python manage.py runserver
 #942882
 
 #dc3545
+
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate       

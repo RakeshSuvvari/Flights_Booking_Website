@@ -342,8 +342,8 @@ def book(request):
                 fname = request.POST[f'passenger{i}FName']
                 lname = request.POST[f'passenger{i}LName']
                 gender = request.POST[f'passenger{i}Gender']
-                # seat = request.POST[f'passenger{i}Seat']
-                passengers.append(Passenger.objects.create(first_name=fname,last_name=lname,gender=gender.lower()))
+                seat = request.POST[f'passenger{i}Seat']
+                passengers.append(Passenger.objects.create(first_name=fname,last_name=lname,gender=gender.lower(),seat_number=seat))
             coupon = request.POST.get('coupon')
             
             try:
