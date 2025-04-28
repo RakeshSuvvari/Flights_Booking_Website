@@ -54,10 +54,11 @@ class Passenger(models.Model):
     first_name = models.CharField(max_length=64, blank=True)
     last_name = models.CharField(max_length=64, blank=True)
     gender = models.CharField(max_length=20, choices=GENDER, blank=True)
-    seat_number = models.CharField(max_length=5, blank=True, null=True)
+    seat_number = models.CharField(max_length=5, blank=True, null=True)   # Outbound
+    seat_number_two = models.CharField(max_length=5, blank=True, null=True)   # Return
 
     def __str__(self):
-        return f"Passenger: {self.first_name} {self.last_name}, {self.gender}, {self.seat_number}"
+        return f"Passenger: {self.first_name} {self.last_name}, {self.gender}, {self.seat_number_one}, {self.seat_number_two}"
 
 
 
