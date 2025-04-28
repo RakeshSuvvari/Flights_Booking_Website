@@ -453,8 +453,8 @@
                         </div>
                         <div class="row surcharges">
                             <div class="surcharges-label">Fee & Surcharges: </div>
-                            <div class="surcharges-value">$ <span>{{fee}}</span></div>
-                            <input type="hidden" id="fee" value="{{fee}}">
+                            <div class="surcharges-value">$ <span>{{fee | divide:80}}</span></div>
+                            <input type="hidden" id="fee" value="{{fee | divide:80}}">
                         </div>
                         <hr>
                         <div class="total-fare">
@@ -463,25 +463,25 @@
                                 {% if seat == 'First' %}
                                     $ <span>
                                         {% if flight2 %}
-                                            {{flight1.first_fare | add:flight2.first_fare | divide:80 | add_float:fee}}
+                                            {{flight1.first_fare | add:flight2.first_fare | add_float:fee | divide:80}}
                                         {% else %}
-                                            {{flight1.first_fare | divide:80 | add_float:fee}}
+                                            {{flight1.first_fare | add_float:fee | divide:80}}
                                         {% endif %}
                                     </span>
                                 {% elif seat == 'Business' %}
                                     $ <span>
                                         {% if flight2 %}
-                                            {{flight1.business_fare | add:flight2.business_fare | divide:80 | add_float:fee}}
+                                            {{flight1.business_fare | add:flight2.business_fare | add_float:fee | divide:80}}
                                         {% else %}
-                                            {{flight1.business_fare | divide:80 | add_float:fee}}
+                                            {{flight1.business_fare | add_float:fee | divide:80}}
                                         {% endif %}
                                     </span>
                                 {% elif seat == 'Economy' %}
                                     $ <span>
                                         {% if flight2 %}
-                                            {{flight1.economy_fare | add:flight2.economy_fare | divide:80 | add_float:fee}}
+                                            {{flight1.economy_fare | add:flight2.economy_fare | add_float:fee | divide:80}}
                                         {% else %}
-                                            {{flight1.economy_fare | divide:80 | add_float:fee}}
+                                            {{flight1.economy_fare | add_float:fee | divide:80}}
                                         {% endif %}
                                         </span>
                                 {% endif %}
