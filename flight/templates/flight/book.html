@@ -391,8 +391,8 @@
                       </div>
                   
                       <div class="seat-map">
-                        <h5>Select Seat</h5>
-                        <select class="form-control" id="tempseat">
+                        <h5>Select Seat for Outbound</h5>
+                        <select class="form-control" id="tempseat1">
                             <option value="">-- Choose Seat --</option>
                             {% for row in "ABCDEF"|make_list %}
                                 {% for col in "123456"|make_list %}
@@ -400,7 +400,22 @@
                                 {% endfor %}
                             {% endfor %}
                         </select>
-                    </div>
+                      </div>
+                      
+                      {% if flight2 %}
+                      <div class="seat-map">
+                        <h5>Select Seat for Return</h5>
+                        <select class="form-control" id="tempseat2">
+                            <option value="">-- Choose Seat --</option>
+                            {% for row in "ABCDEF"|make_list %}
+                                {% for col in "123456"|make_list %}
+                                    <option value="{{ row }}{{ col }}">{{ row }}{{ col }}</option>
+                                {% endfor %}
+                            {% endfor %}
+                        </select>
+                      </div>
+                      {% endif %}
+                      
                   
                       <button type="button" class="btn btn-primary btn-light" onclick="add_traveller()">Add</button>
                     </div>
