@@ -55,8 +55,6 @@ class Passenger(models.Model):
     last_name = models.CharField(max_length=64, blank=True)
     gender = models.CharField(max_length=20, choices=GENDER, blank=True)
     seat_number = models.CharField(max_length=5, blank=True, null=True)
-    #passenger = models.ForeignKey(User, on_delete=models.CASCADE, related_name="flights")
-    #flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name="passengers")
 
     def __str__(self):
         return f"Passenger: {self.first_name} {self.last_name}, {self.gender}, {self.seat_number}"
@@ -97,23 +95,3 @@ class Ticket(models.Model):
         return self.ref_no
     
 
-
-# class Booking(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     flight = models.ForeignKey('Flight', on_delete=models.CASCADE)
-#     seat_class = models.CharField(max_length=20)
-#     booked_at = models.DateTimeField(auto_now_add=True)
-
-#     def __str__(self):
-#         return f"{self.user.username} - {self.flight} - {self.seat_class}"
-
-# class SeatBooking(models.Model):
-#     booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
-#     flight = models.ForeignKey('Flight', on_delete=models.CASCADE)
-#     seat_number = models.CharField(max_length=5)
-
-#     class Meta:
-#         unique_together = ('flight', 'seat_number')
-
-#     def __str__(self):
-#         return f"{self.booking.user.username} - {self.flight.plane} - Seat {self.seat_number}"
